@@ -1,0 +1,6 @@
+@import "./reset.css";
+
+main#fundo{
+    display:flex;
+    flex-direction: row
+};

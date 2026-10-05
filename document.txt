@@ -1,0 +1,12 @@
+*Infos públicas (qm é o doador e entrar no perfil da ong vai ver tbm)
+- Média de doações
+- número de projetos ativos
+- doações contínuas
+- Voluntários ativos
+
+*Infos privadas (só a ong vai ver)
+- Capital total
+- Se doações estão caindo ou crescendo
+- Funcionários ativos
+- O que precisa, o que tem muito para ONG (roupa, alimento, ração, curso)
+- Se voluntários estão caindo ou crescendo
