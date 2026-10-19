@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <main>
+        <section id="c1">
+            <div>
+                <div id="JFWebsiteWidget-01a1550d994870008efaa7c90e16a6994d0a"></div>
+                <script src="https://www.jotform.com/website-widgets/embed/01a1550d994870008efaa7c90e16a6994d0a"
+                    defer></script>
+            </div>
+            <div>
+                <div id="graficoNecessidades" style="width: 100%; height: 500px;"></div>
+
+                <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+
+                <script>
+                    const grafico = echarts.init(document.getElementById('graficoNecessidades'));
+
+                    const configuracao = {
+
+                        title: {
+                            text: 'O que mais precisa?',
+                            left: 'center',
+                            top: 20,
+                            textStyle: {
+                                color: '#ccc'
+                            }
+                        },
+
+                        tooltip: {
+                            trigger: 'item'
+                        },
+
+                        visualMap: {
+                            show: false,
+                            min: 80,
+                            max: 600,
+                            inRange: {
+                                colorLightness: [0, 1]
+                            }
+                        },
+
+                        series: [
+                            {
+                                name: 'Necessidades',
+                                type: 'pie',
+                                radius: '55%',
+                                center: ['50%', '50%'],
+
+                                data: [
+                                    { value: 335, name: 'Roupa' },
+                                    { value: 310, name: 'Cesta básica' },
+                                    { value: 274, name: 'Itens de higiene' },
+                                    { value: 235, name: 'Alimentos' },
+                                    { value: 400, name: 'Cursos' }
+                                ].sort(function (itemA, itemB) {
+                                    return itemA.value - itemB.value;
+                                }),
+
+                                roseType: 'radius',
+
+                                label: {
+                                    color: 'rgba(255, 255, 255, 0.8)'
+                                },
+
+                                labelLine: {
+                                    lineStyle: {
+                                        color: 'rgba(255, 255, 255, 0.5)'
+                                    },
+                                    smooth: 0.2,
+                                    length: 10,
+                                    length2: 20
+                                },
+
+                                itemStyle: {
+                                    color: '#c23531',
+                                    shadowBlur: 200,
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                },
+
+                                animationType: 'scale',
+                                animationEasing: 'elasticOut',
+
+                                animationDelay: function (indice) {
+                                    return Math.random() * 200;
+                                }
+                            }
+                        ]
+                    };
+
+                    grafico.setOption(configuracao);
+
+                    window.addEventListener('resize', () => grafico.resize());
+                </script>
+            </div>
+            <div>
+                widget3
+            </div>
+        </section>
+        <section id="c2">
+            <div>
+                <div id="grafico" style="width: 100%; height: 500px;"></div>
+
+                <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+
+                <script>
+                    const chart = echarts.init(document.getElementById('grafico'));
+
+                    const option = {
+                        dataset: {
+                            source: [
+                                ['score', 'amount', 'product'],
+                                [89.3, 58212, 'Janeiro'],
+                                [57.1, 78254, 'Fevereiro'],
+                                [74.4, 41032, 'Março'],
+                                [50.1, 12755, 'Abril'],
+                                [89.7, 20145, 'Maio'],
+                                [68.1, 79146, 'Junho'],
+                                [19.6, 91852, 'Julho'],
+                                [10.6, 101852, 'Agosto'],
+                                [32.7, 20112, 'Setembro']
+                            ]
+                        },
+                        grid: { containLabel: true },
+                        xAxis: { name: 'amount', type: 'value' },
+                        yAxis: { type: 'category' },
+                        visualMap: {
+                            orient: 'horizontal',
+                            left: 'center',
+                            min: 10,
+                            max: 100,
+                            text: ['High Score', 'Low Score'],
+                            dimension: 0,
+                            inRange: {
+                                color: ['#F9E6A8', '#EB895B', '#800020']
+                            }
+                        },
+                        series: [{
+                            type: 'bar',
+                            encode: {
+                                x: 'amount',
+                                y: 'product'
+                            }
+                        }]
+                    };
+
+                    chart.setOption(option);
+
+                    window.addEventListener('resize', () => chart.resize());
+                </script>
+            </div>
+            <div>
+                <div id="graficoProjetos" style="width: 100%; height: 500px;"></div>
+
+                <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+
+                <script>
+                    const graficoProjetos = echarts.init(
+                        document.getElementById('graficoProjetos')
+                    );
+
+                    const configuracaoGrafico = {
+                        legend: {},
+                        tooltip: {},
+
+                        dataset: {
+                            source: [
+                                [
+                                    'product',
+                                    'Número de projetos',
+                                    'Voluntários Contratados',
+                                    'Voluntários Ativos'
+                                ],
+                                ['1° Bimestre', 43.3, 85.8, 93.7],
+                                ['2° Bimestre', 83.1, 73.4, 55.1],
+                                ['3° Bimestre', 86.4, 65.2, 82.5],
+                                ['4° Bimestre', 72.4, 53.9, 39.1]
+                            ]
+                        },
+
+                        xAxis: {
+                            type: 'category'
+                        },
+
+                        yAxis: {},
+
+                        series: [
+                            { type: 'bar' },
+                            { type: 'bar' },
+                            { type: 'bar' }
+                        ]
+                    };
+
+                    graficoProjetos.setOption(configuracaoGrafico);
+
+                    window.addEventListener('resize', () => {
+                        graficoProjetos.resize();
+                    });
+                </script>
+            </div>
+        </section>
+        <section id="c3">
+            <div>
+                widget6
+            </div>
+            <div>
+                widget7
+            </div>
+            <div>
+                widget8
+            </div>
+            <div>
+                <div id="JFWebsiteWidget-01a15520ac18700084035962ddb753abfcff"></div>
+                <script src="https://www.jotform.com/website-widgets/embed/01a15520ac18700084035962ddb753abfcff"
+                    defer></script>
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>
